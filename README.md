@@ -22,5 +22,6 @@
 </ul>
 
 ## База данных
-![Кинопоиск](https://github.com/user-attachments/assets/b11b6bcc-0c09-42ee-a03f-a03a6f2272e8)
+![](https://github.com/user-attachments/assets/9cc82583-dfe9-44f3-a81f-24cbd84ba186)
+
 
