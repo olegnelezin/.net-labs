@@ -15,6 +15,5 @@ public class KinoPoiskDbContext : DbContext
         modelBuilder.Entity<User>()
             .HasMany(s => s.Movies)
             .WithMany(c => c.Users);
-        
     }
 }
