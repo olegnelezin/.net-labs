@@ -1,5 +1,8 @@
-﻿namespace KinoPoisk.Kinopoisk.DataAccess.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
+namespace KinoPoisk.Kinopoisk.DataAccess.Entities;
+
+[Table("movies")]
 public class Movie : BaseEntity
 {
     public string Name { get; set; }
@@ -10,7 +13,10 @@ public class Movie : BaseEntity
     
     public double Rating { get; set; }
     
-    public int Genre { get; set; }
+    [ForeignKey("GenreId")]
+    public int GenreId { get; set; }
+    
+    public Genre Genre { get; set; }
     
     public ICollection<User> Users { get; set; }
 }

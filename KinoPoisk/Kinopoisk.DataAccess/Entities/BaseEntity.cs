@@ -7,4 +7,10 @@ public abstract class BaseEntity
     public DateTime CreationTime { get; set; }
     
     public DateTime ModificationTime { get; set; }
+
+    public void init()
+    {
+        CreationTime = DateTime.UtcNow;
+        ModificationTime = DateTime.UtcNow;
+    }
 }

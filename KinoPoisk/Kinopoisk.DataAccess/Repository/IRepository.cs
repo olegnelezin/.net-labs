@@ -1,6 +1,14 @@
-﻿namespace KinoPoisk.Kinopoisk.DataAccess.Repository;
+﻿using KinoPoisk.Kinopoisk.DataAccess.Entities;
 
-public interface IRepository
+namespace KinoPoisk.Kinopoisk.DataAccess.Repository;
+
+public interface IRepository<T> where T : BaseEntity
 {
-    
+    IQueryable<T> GetAll();
+
+    T? GetById(int id);
+
+    T Save(T entity);
+
+    void Delete(T entity);
 }

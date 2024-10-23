@@ -1,5 +1,8 @@
-﻿namespace KinoPoisk.Kinopoisk.DataAccess.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
+namespace KinoPoisk.Kinopoisk.DataAccess.Entities;
+
+[Table("genres")]
 public class Genre
 {
     public int Id { get; set; }
