@@ -70,4 +70,19 @@ public class UserController : ControllerBase
         }
     }
 
+    
+    [HttpDelete]
+    [Route("{id}")]
+    public IActionResult DeleteUser(int id)
+    {
+        try
+        {
+            _usersManager.DeleteUser(id);
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, "Internal server error.");
+        }
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using KinoPoisk.KinoPoisk.BL.Users.Exceptions;
 using KinoPoisk.KinoPoisk.BL.Users.Model;
 using KinoPoisk.Kinopoisk.DataAccess.Repository;
 
@@ -27,5 +28,16 @@ public class UsersManager : IUsersManager
         var user = _mapper.Map<User>(updateUserModel);
         user = _usersRepository.Save(user);
         return _mapper.Map<UserModel>(user);
+    }
+
+    public void DeleteUser(int id)
+    {
+        var user = _usersRepository.GetById(id);
+        if (user == null)
+        {
+            throw new UserNotFoundException("User not found.");
+        }
+            
+        _usersRepository.Delete(user);
     }
 }
