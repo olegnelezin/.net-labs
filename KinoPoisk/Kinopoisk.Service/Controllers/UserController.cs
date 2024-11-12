@@ -30,7 +30,7 @@ public class UserController : ControllerBase
         try
         {
             var createUserModel = _mapper.Map<CreateUserModel>(request);
-            var userModel = _usersManager.createUser(createUserModel);
+            var userModel = _usersManager.CreateUser(createUserModel);
             return Ok(userModel);
         }
         catch (Exception e)
@@ -50,9 +50,24 @@ public class UserController : ControllerBase
                 Users = users.Select(u => _mapper.Map<UserModel>(u)).ToList()
             });
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
             return StatusCode(500, "Internal server error.");
         }
     }
+    
+    [HttpPut]
+    public IActionResult UpdateUserInfo([FromBody] UpdateUserModel request)
+    {
+        try
+        {
+            var userModel = _usersManager.UpdateUser(request);
+            return Ok(userModel);
+        }
+        catch (Exception e)
+        {
+            return StatusCode(500, "Internal server error.");
+        }
+    }
+
 }

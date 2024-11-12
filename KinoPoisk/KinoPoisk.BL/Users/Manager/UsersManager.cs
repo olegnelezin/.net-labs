@@ -15,9 +15,16 @@ public class UsersManager : IUsersManager
         _mapper = mapper;
     }
     
-    public UserModel createUser(CreateUserModel createUserModel)
+    public UserModel CreateUser(CreateUserModel createUserModel)
     {
         var user = _mapper.Map<User>(createUserModel);
+        user = _usersRepository.Save(user);
+        return _mapper.Map<UserModel>(user);
+    }
+
+    public UserModel UpdateUser(UpdateUserModel updateUserModel)
+    {
+        var user = _mapper.Map<User>(updateUserModel);
         user = _usersRepository.Save(user);
         return _mapper.Map<UserModel>(user);
     }

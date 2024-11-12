@@ -4,5 +4,7 @@ namespace KinoPoisk.KinoPoisk.BL.Users.Manager;
 
 public interface IUsersManager
 {
-    UserModel createUser(CreateUserModel createUserModel);
+    UserModel CreateUser(CreateUserModel createUserModel);
+
+    UserModel UpdateUser(UpdateUserModel updateUserModel);
 }

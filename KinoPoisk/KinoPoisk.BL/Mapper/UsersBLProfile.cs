@@ -21,5 +21,12 @@ public class UsersBLProfile : Profile
             .ForMember(x => x.PasswordHash, opt => opt.MapFrom(src => src.PasswordHash))
             .ForMember(x => true, opt => opt.MapFrom(src => src.IsActive));
         // add RoleId
+        
+        CreateMap<User, UpdateUserModel>()
+            .ForMember(x => x.Id, opt => opt.MapFrom(src => src.Id))
+            .ForMember(x => x.UserName, opt => opt.MapFrom(src => src.UserName))
+            .ForMember(x => x.PasswordHash, opt => opt.MapFrom(src => src.PasswordHash))
+            .ForMember(x => true, opt => opt.MapFrom(src => src.IsActive));
+        // add RoleId
     }
 }
